@@ -1,0 +1,102 @@
+/* 模仿layuiAdmin */
+.layui-layout-admin .layui-side {
+  top: 0;
+  /* 防止被头部标签挡住 */
+  z-index: 1001;
+}
+
+/* 让logo在菜单栏中展示 */
+.layui-layout-admin .layui-logo {
+  transition: width .4s ease-in-out;
+  height: 60px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1002;
+}
+
+/* 字体不换行 */
+.layui-layout-admin .layui-logo {
+  white-space: nowrap;
+}
+
+
+.layui-header {
+  /* 减少 */
+  height: 50px;
+}
+
+.layui-header .layui-nav {
+  padding: 0;
+}
+
+.layui-header .layui-nav .layui-nav-item {
+  line-height: 50px;
+}
+
+/* 菜单收放按钮效果 */
+#LAY_app_flexible {
+  transition: All .4s ease-in-out;
+}
+
+.layui-layout-custom-shrink #LAY_app_flexible {
+  transform: rotate(-180deg);
+}
+
+/* 标题收放设置 */
+.layui-header .layui-nav.layui-layout-left {
+  transition: left .4s ease-in-out;
+}
+
+.layui-layout-custom-shrink .layui-header .layui-nav.layui-layout-left {
+  left: 60px;
+}
+
+/* 标题收放设置 */
+
+/* 侧边栏菜单 */
+.layui-side {
+  transition: width .4s ease-in-out;
+}
+
+.layui-side .layui-nav.layui-nav-tree {
+  margin-top: 60px;
+}
+
+.layui-layout-custom-shrink .layui-side {
+  width: 60px;
+}
+
+.layui-layout-custom-shrink .layui-logo {
+  height: 50px;
+  width: 60px;
+  background-image: url('res/logo.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.layui-layout-custom-shrink .layui-logo>span {
+  display: none;
+}
+
+/* 侧边栏菜单 */
+
+/* 内容主体区域 */
+.layui-body {
+  transition: left .4s ease-in-out;
+}
+.layui-layout-custom-shrink .layui-body {
+  left: 60px;
+}
+/* 内容主体区域 */
+
+/* 底部固定区域 */
+.layui-footer {
+  transition: left .4s ease-in-out;
+}
+.layui-layout-custom-shrink .layui-footer {
+  left: 60px;
+}
+/* 底部固定区域 */
+
+/* 菜单收放按钮效果 */
