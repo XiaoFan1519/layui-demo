@@ -8,7 +8,7 @@
 /* 让logo在菜单栏中展示 */
 .layui-layout-admin .layui-logo {
   transition: width .4s ease-in-out;
-  height: 60px;
+  height: 50px;
   position: fixed;
   left: 0;
   top: 0;
@@ -60,7 +60,7 @@
 }
 
 .layui-side .layui-nav.layui-nav-tree {
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 .layui-layout-custom-shrink .layui-side {
@@ -68,7 +68,6 @@
 }
 
 .layui-layout-custom-shrink .layui-logo {
-  height: 50px;
   width: 60px;
   background-image: url('res/logo.png');
   background-repeat: no-repeat;
