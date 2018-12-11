@@ -84,18 +84,37 @@
 .layui-body {
   transition: left .4s ease-in-out;
 }
+
 .layui-layout-custom-shrink .layui-body {
   left: 60px;
 }
+
 /* 内容主体区域 */
 
 /* 底部固定区域 */
 .layui-footer {
   transition: left .4s ease-in-out;
 }
+
 .layui-layout-custom-shrink .layui-footer {
   left: 60px;
 }
+
 /* 底部固定区域 */
+
+/* 菜单在缩放后只显示图标 */
+.layui-side .layui-nav .layui-nav-item i.layui-icon {
+  font-size: 16px;
+}
+
+.layui-layout-custom-shrink .layui-side .layui-nav .layui-nav-item > a > span {
+  display: none;
+}
+
+.layui-layout-custom-shrink .layui-side .layui-nav .layui-nav-item > dl {
+  display: none;
+}
+
+/* 菜单在缩放后只显示图标 */
 
 /* 菜单收放按钮效果 */
