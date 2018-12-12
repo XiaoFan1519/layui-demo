@@ -20,6 +20,11 @@
             <i class="layui-icon layui-icon-shrink-right"></i>
           </a>
         </li>
+        <li class="layui-nav-item" lay-unselect="">
+          <a href="javascript:;" layadmin-event="refresh" title="刷新">
+            <i class="layui-icon layui-icon-refresh-3"></i>
+          </a>
+        </li>
       </ul>
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
@@ -35,7 +40,6 @@
         <li class="layui-nav-item"><a href="">退了</a></li>
       </ul>
     </div>
-
     <div class="layui-side layui-bg-black">
       <div class="layui-side-scroll">
         <div class="layui-logo">
@@ -113,10 +117,36 @@
         </ul>
       </div>
     </div>
-
+    <div class="layadmin-pagetabs">
+      <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
+      <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
+      <div class="layui-icon layadmin-tabs-control layui-icon-down">
+        <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+          <li class="layui-nav-item" lay-unselect="">
+            <a href="javascript:;"><span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child layui-anim-fadein layui-anim layui-anim-upbit">
+              <dd layadmin-event="closeThisTabs" class=""><a href="javascript:;">关闭当前标签页</a></dd>
+              <dd layadmin-event="closeOtherTabs"><a href="javascript:;">关闭其它标签页</a></dd>
+              <dd layadmin-event="closeAllTabs" class=""><a href="javascript:;">关闭全部标签页</a></dd>
+            </dl>
+          </li>
+          <span class="layui-nav-bar" style="left: 20px; top: 35px; width: 0px; opacity: 0;"></span>
+        </ul>
+      </div>
+      <div class="layui-tab" lay-unauto="" lay-allowclose="true" lay-filter="layadmin-layout-tabs">
+        <ul class="layui-tab-title" id="LAY_app_tabsheader" style="left: 0px;">
+          <li lay-id="home/console.html" lay-attr="home/console.html" class="layui-this">
+            <i class="layui-icon layui-icon-home"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="layui-body">
       <!-- 内容主体区域 -->
-      <div style="padding: 15px;">内容主体区域</div>
+      <div style="padding: 15px;">
+        内容主体区域
+        <iframe src="test.html" frameborder="0"></iframe>
+      </div>
     </div>
 
     <div class="layui-footer">
@@ -130,8 +160,12 @@
     layui.config({
       base: './js/' //静态资源所在路径
     }).extend({
-      index: 'index' //主入口模块
-    }).use('index');
+      index: 'index', //主入口模块
+      pagetabs: 'pagetabs/index'
+    }).use(['index', 'pagetabs'], function () {
+      var pagetabs = layui.pagetabs;
+      pagetabs.hello('123');
+    });
   </script>
 </body>
 

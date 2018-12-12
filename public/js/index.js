@@ -7,9 +7,10 @@ layui.define(['jquery', 'element', 'layer'], function (exports) {
   var $ = layui.$;
   var element = layui.element;
 
+  const className = 'layui-layout-custom-shrink';
+  var layApp = $('#LAY_app');
+
   function toggleMenu() {
-    const className = 'layui-layout-custom-shrink';
-    var layApp = $('#LAY_app');
     if (layApp.hasClass(className)) {
       layApp.removeClass(className);
     } else {
@@ -22,8 +23,10 @@ layui.define(['jquery', 'element', 'layer'], function (exports) {
     layer.msg('Hello World');
   });
 
-  $('.layui-side .layui-nav-item > a').live('click', function () {
-    toggleMenu();
+  $('.layui-side .layui-nav-item > a').on('click', function () {
+    if (layApp.hasClass(className)) {
+      toggleMenu();
+    }
     return true;
   });
 

@@ -34,6 +34,10 @@
   line-height: 50px;
 }
 
+.layui-header .layui-nav-item .layui-icon {
+  font-size: 16px;
+}
+
 /* 菜单收放按钮效果 */
 #LAY_app_flexible {
   transition: All .4s ease-in-out;
@@ -107,14 +111,13 @@
   font-size: 16px;
 }
 
-.layui-layout-custom-shrink .layui-side .layui-nav .layui-nav-item > a > span {
+.layui-layout-custom-shrink .layui-side .layui-nav .layui-nav-item>a>span {
   display: none;
 }
 
-.layui-layout-custom-shrink .layui-side .layui-nav .layui-nav-item > dl {
+.layui-layout-custom-shrink .layui-side .layui-nav .layui-nav-item>dl {
   display: none;
 }
-
 /* 菜单在缩放后只显示图标 */
 
 /* 菜单收放按钮效果 */
