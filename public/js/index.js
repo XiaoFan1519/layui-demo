@@ -30,5 +30,9 @@ layui.define(['jquery', 'element', 'layer'], function (exports) {
     return true;
   });
 
+  element.on('nav(layadmin-layout-side-menu)', function(elem){
+    console.log(elem); //得到当前点击的DOM对象
+  });
+
   exports('index', {}); //注意，这里是模块输出的核心，模块名必须和use时的模块名一致
 });
