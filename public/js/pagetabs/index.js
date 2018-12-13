@@ -59,6 +59,12 @@ layui.define(['jquery', 'element'], function (exports) { //提示：模块也可
     deleteTab(data.index);
   });
 
+  // 刷新
+  $('#LAY_app_refresh').click(function () {
+    var iframe = iframeContainer.find('.layui-this');
+    iframe.attr('src', iframe.attr('src'));
+  });
+
   // 输出接口
   exports('pagetabs', {
     addTab
