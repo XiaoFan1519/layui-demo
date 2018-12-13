@@ -15,24 +15,36 @@ layui.define(['jquery', 'element'], function (exports) { //提示：模块也可
    */
   function findTab(href) {
     var selector = `li[lay-attr="${href}"]`;
-    return tabContainer.find(selector);
+    var elem = tabContainer.find(selector);
+    return elem.length > 0 ? elem : null;
+  }
+
+  function showTab(elem) {
+    elem.addClass(showClassName).siblings().removeClass(showClassName);
+    var index = tabContainer.find('li').index(elem);
+    iframeContainer.find('iframe').eq(index).addClass(showClassName).siblings().removeClass(showClassName);
   }
 
   function addTab(title, href) {
-    var element = findTab(href);
-    if (element != null) {
-      showTab(element);
+
+    if (href == null) {
+      throw new Error('href cannot be null.');
+    }
+
+    title = title == null ? '默认标题' : title;
+
+    var elem = findTab(href);
+    if (elem != null) {
+      showTab(elem);
       return;
     }
 
-    var tab = `<li lay-attr="${href}"><span>${title}</span></li>`;
-    var iframe = `<iframe src="${href}" frameborder="0" class="layadmin-iframe"></iframe>`;
-  }
-
-  function showTab(element) {
-    element.addClass(showClassName).siblings().removeClass(showClassName);
-    var index = tabContainer.find('li').index(element);
-    iframeContainer.find('iframe').eq(index).addClass(showClassName).siblings().removeClass(showClassName);
+    var tab = $(`<li lay-attr="${href}"><span>${title}</span><i class="layui-icon layui-unselect layui-tab-close">ဆ</i></li>`);
+    var iframe = $(`<iframe src="${href}" frameborder="0" class="layadmin-iframe"></iframe>`);
+    tab.appendTo(tabContainer);
+    iframe.appendTo(iframeContainer);
+    showTab(tab);
+    element.render('tab(layadmin-layout-tabs)');
   }
 
   function deleteTab(index) {
@@ -44,7 +56,6 @@ layui.define(['jquery', 'element'], function (exports) { //提示：模块也可
   });
 
   element.on('tabDelete(layadmin-layout-tabs)', function (data) {
-    console.log(data);
     deleteTab(data.index);
   });
 
