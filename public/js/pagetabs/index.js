@@ -6,7 +6,14 @@ layui.define(['jquery', 'element'], function (exports) { //提示：模块也可
   var element = layui.element;
   var $ = layui.jquery;
 
-  const showClassName = 'layui-this';
+  // 自定义tab结构
+  element.tab({
+    headerElem: '#LAY_app_tabsheader>li' //指定tab头元素项
+    ,bodyElem: '#LAY_app_tabsbody>iframe' //指定tab主体元素项
+  });
+
+  const showClassName = 'layui-show';
+  const filterName = 'layadmin-layout-tabs';
   var tabContainer = $('#LAY_app_tabsheader');
   var iframeContainer = $('#LAY_app_tabsbody');
 
@@ -14,17 +21,10 @@ layui.define(['jquery', 'element'], function (exports) { //提示：模块也可
     return null or element
    */
   function findTab(href) {
-    var selector = `li[lay-attr="${href}"]`;
+    var selector = `li[lay-id="${href}"]`;
     var elem = tabContainer.find(selector);
     return elem.length > 0 ? elem : null;
   }
-
-  function showTab(elem) {
-    elem.addClass(showClassName).siblings().removeClass(showClassName);
-    var index = tabContainer.find('li').index(elem);
-    iframeContainer.find('iframe').eq(index).addClass(showClassName).siblings().removeClass(showClassName);
-  }
-
   function addTab(title, href) {
 
     if (href == null) {
@@ -35,33 +35,42 @@ layui.define(['jquery', 'element'], function (exports) { //提示：模块也可
 
     var elem = findTab(href);
     if (elem != null) {
-      showTab(elem);
+      element.tabChange(filterName, href);
       return;
     }
 
-    var tab = $(`<li lay-attr="${href}"><span>${title}</span><i class="layui-icon layui-unselect layui-tab-close">ဆ</i></li>`);
-    var iframe = $(`<iframe src="${href}" frameborder="0" class="layadmin-iframe"></iframe>`);
-    tab.appendTo(tabContainer);
+    var iframe = $(`<iframe src="${href}" frameborder="0" class="layadmin-iframe ${showClassName}"></iframe>`);
+    element.tabAdd(filterName, {
+      title: title,
+      id: href
+    });
+    // 清除其他iframe的显示效果
+    iframeContainer.find('iframe').removeClass(showClassName);
     iframe.appendTo(iframeContainer);
-    showTab(tab);
-    element.render('tab(layadmin-layout-tabs)');
+    element.tabChange(filterName, href);
   }
 
   function deleteTab(index) {
     iframeContainer.find('iframe').eq(index).remove();
   }
 
-  element.on('tab(layadmin-layout-tabs)', function (data) {
-    showTab($(this));
+  element.on(`tab(${filterName})`, function (data) {
+    // 展示对应的iframe
+    var iframe = iframeContainer.find('iframe').eq(data.index);
+    if (iframe.hasClass(showClassName)) {
+      return;
+    }
+    iframe.addClass(showClassName).siblings().removeClass(showClassName);
   });
 
-  element.on('tabDelete(layadmin-layout-tabs)', function (data) {
+  element.on(`tabDelete(${filterName})`, function (data) {
+    // 删除对应的iframe
     deleteTab(data.index);
   });
 
   // 刷新
   $('#LAY_app_refresh').click(function () {
-    var iframe = iframeContainer.find('.layui-this');
+    var iframe = iframeContainer.find(`.${showClassName}`);
     iframe.attr('src', iframe.attr('src'));
   });
 

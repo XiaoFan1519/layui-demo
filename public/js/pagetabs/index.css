@@ -131,7 +131,3 @@
 #LAY_app_tabsbody .layadmin-iframe {
   display: none;
 }
-
-#LAY_app_tabsbody .layadmin-iframe.layui-this {
-  display: block;
-}

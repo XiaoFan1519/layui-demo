@@ -33,7 +33,7 @@ layui.define(['jquery', 'element', 'layer', 'pagetabs'], function (exports) {
 
   element.on('nav(layadmin-layout-side-menu)', function(elem){
     console.log(elem);
-    var href = $(elem).attr('lay-href');
+    var href = $(elem).attr('lay-id');
     if (href == null) return;
     var title = $(elem).find('span').text();
     pagetabs.addTab(title, href);

@@ -17,7 +17,9 @@
     console.log(layui);
     layui.use('pagetabs', function () {
       var pagetabs = layui.pagetabs;
-      
+      for (let i = 0; i < 10; i++) {
+        pagetabs.addTab(`测试${i}`, `test/${i}`);
+      }
     });
   </script>
 </body>
