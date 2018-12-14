@@ -21,7 +21,6 @@ layui.define(['jquery', 'element', 'layer', 'pagetabs'], function (exports) {
 
   $('#LAY_app_flexible').click(function () {
     toggleMenu();
-    layer.msg('Hello World');
   });
 
   $('.layui-side .layui-nav-item > a').on('click', function () {

@@ -166,6 +166,9 @@ layui.define(['jquery', 'element'], function (exports) { //提示：模块也可
           break;
         case 'closeOtherTabs':
           closeTabs((n, elem) => n != 0 && !$(elem).hasClass('layui-this'));
+          // 修复选项位置显示不正确的问题
+          var layId = tabContainer.find('.layui-this').attr('lay-id');
+          element.tabChange(filterName, layId);
           break;
         case 'closeAllTabs':
           closeTabs(n => n != 0);
