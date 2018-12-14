@@ -122,7 +122,7 @@
       <div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage"></div>
       <div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage"></div>
       <div class="layui-icon layadmin-tabs-control layui-icon-down">
-        <ul class="layui-nav layadmin-tabs-select" lay-filter="layadmin-pagetabs-nav">
+        <ul class="layui-nav layadmin-tabs-select" lay-filter="pagetabs-function-nav">
           <li class="layui-nav-item" lay-unselect="">
             <a href="javascript:;"><span class="layui-nav-more"></span></a>
             <dl class="layui-nav-child layui-anim-fadein layui-anim layui-anim-upbit">
@@ -166,7 +166,7 @@
     }).extend({
       index: 'index', //主入口模块
       pagetabs: 'pagetabs/index'
-    }).use(['index', 'pagetabs'], function () {
+    }).use('index', function () {
 
     });
   </script>
