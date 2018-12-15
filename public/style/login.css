@@ -1,0 +1,81 @@
+html {
+  background-color: #f2f2f2;
+}
+
+html,
+body,
+body>.layui-container,
+body>.layui-container>.layui-row {
+  height: 100%;
+}
+
+body>.layui-container>.layui-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layui-form div.layui-form-item {
+  position: relative;
+}
+
+.layui-form label.layui-icon {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 38px;
+  line-height: 36px;
+  text-align: center;
+  color: #d2d2d2;
+}
+
+.layui-form .layui-input {
+  padding-left: 38px;
+}
+
+.login-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.retrieve-password {
+  float: right;
+  margin-top: 7px;
+}
+
+.other-login {
+  position: relative;
+  line-height: 38px;
+  padding-top: 20px;
+}
+
+.other-login .layui-icon {
+  position: relative;
+  top: 2px;
+  font-size: 26px;
+}
+
+.other-login a {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.other-login a:hover {
+  opacity: .8;
+}
+
+.other-login .layui-icon-login-qq {
+  color: #3492ED;
+}
+
+.other-login .layui-icon-login-wechat {
+  color: #4DAF29;
+}
+
+.other-login .layui-icon-login-weibo {
+  color: #CF1900;
+}
+
+.other-login .register {
+  float: right;
+}
