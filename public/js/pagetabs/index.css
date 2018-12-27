@@ -22,10 +22,8 @@
   background-color: #fff;
   box-sizing: border-box;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
-}
-
-/* 缩放效果 */
-.layadmin-pagetabs {
+  z-index: 1000;
+  /* 缩放效果 */
   transition: left .4s ease-in-out;
 }
 

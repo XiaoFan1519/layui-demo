@@ -23,6 +23,7 @@
 
 .layui-header {
   /* 减少 */
+  box-sizing: border-box;
   height: 50px;
 }
 

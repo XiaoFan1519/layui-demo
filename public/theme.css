@@ -2,6 +2,7 @@
 .theme-fan .layui-header {
   border-bottom: 1px solid #f6f6f6;
   background-color: #fff;
+  box-sizing: border-box;
 }
 
 .theme-fan .layui-header .layui-nav .layui-nav-item a {
